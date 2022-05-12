@@ -17,6 +17,18 @@ struct client
    struct node *next;
 };
 
+struct admin
+{
+    char BankAccountID[20];
+    char Password[20];
+
+
+} admins[]={
+
+ { .BankAccountID = "123", .Password = '9898' },
+    { .BankAccountID = "123", .Password = '7878' },
+
+};
 
 
 
@@ -37,15 +49,42 @@ void print_list(struct list *l);
 
 int main(void)
 {
+    char  FullName[20];
+    char  FullAddress[20];
+    char NationalID[20] ;
+    int Age;
+    char BankAccountID[20];
+    char Guardian[20];
+    char GuardianNationalID[20];
+    char AccountStatus[10];
+    double Balance ;
+    char Password[20];
 
     printf("hello from main\n");
+    printf("enter the Client BankAccountID \n");
+    scanf("%s",&BankAccountID);
+    puts(BankAccountID);
+    puts(admins[1].BankAccountID);
+   //admin list_2[]={{BankAccountID:"1234",Password:"ab"},{.BankAccountID="1234",.Password="abb"},};
+  if(strcmp(BankAccountID,admins[1].BankAccountID) == 0){
+    printf("the admin user name is ");
+    puts(admins[1].BankAccountID);
+
+
+}else{
+printf("the no admin user name is ");
+}
+
+
+    // creating database for all our clients
 	struct list l1;
 	create_list(&l1);
 	creatClient(&l1,"sarah","naserstreet","876543",23,"99999","manar","111111",7777,"abc");
 	creatClient(&l1,"zahra","naserstreet","876542",26,"99998","hager","111110",7776,"abca");
 	creatClient(&l1,"shahed","naserstreet","876541",26,"99997","Omar","111112",7775,"abcc");
     printf("size of list is %d\n",l1.size);
-     print_list(&l1);
+    // print_list(&l1);
+
 
 
 
